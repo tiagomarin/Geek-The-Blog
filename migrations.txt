@@ -1,0 +1,14 @@
+rails generate migration CreateUsers Name:string:index Photo:string Bio:string PostCounter:integer;
+
+rails generate migration CreateComment Text:string ;
+
+rails generate migration CreatePost Title:string Text:string CommentsCounter:integer LikesCounter:integer;
+
+rails generate migration CreateLike;
+
+rails generate migration AddUserToComment user:references;
+rails generate migration AddUserToLike user:references;
+rails generate migration AddUserToPost user:references;
+
+rails generate migration AddPostToLike post:references;
+rails generate migration AddPostToComment post:references;
