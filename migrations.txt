@@ -1,4 +1,4 @@
-rails generate migration CreateUsers Name:string:index Photo:string Bio:string PostCounter:integer;
+rails generate migration CreateUsers name:string:index photo:string bio:string post_counter:integer;
 
 rails generate migration CreateComment Text:string ;
 
