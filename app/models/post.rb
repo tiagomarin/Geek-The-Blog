@@ -1,11 +1,9 @@
 class Post < ApplicationRecord
-  belongs_to :user
+  belongs_to :author, class_name: 'User', counter_cache: :posts_counter
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
-  def self.most_recent
+  # def last_5_comments
 
-  end
-
-  def self.update_user_counter
-    
-  end
+  # end
 end
