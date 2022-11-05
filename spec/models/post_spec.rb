@@ -20,12 +20,12 @@ RSpec.describe Post, type: :model do
       expect(post.author.name).to eql('Jonh')
     end
 
-    it 'should have a key "comments_counter" = 0' do
-      expect(post.comments_counter).to eql(0)
+    it 'should have a key "comments_counter" greater or = 0' do
+      expect(post.comments_counter).to be >= 0
     end
 
-    it 'should have a key "likes_counter" = 0' do
-      expect(post.likes_counter).to eql(0)
+    it 'should have a key "likes_counter" greater or = 0' do
+      expect(post.likes_counter).to be >= 0
     end
   end
 

@@ -5,20 +5,23 @@ RSpec.describe User, type: :model do
 
   context 'User is created with proper key and values, passes all validations and it ' do
     it 'should have a key name = Ana' do
-      expect(user.name).to match('Ana')
+      expect(user.name).to eql('Ana')
     end
     it 'should have a key photo = https://photoUrl.com' do
-      expect(user.photo).to match('https://photoUrl.com')
+      expect(user.photo).to eql('https://photoUrl.com')
     end
-    it 'should have a key bio = Teacher from Mexico' do
-      expect(user.bio).to match('Teacher from Mexico')
+    it 'should have a key bio = Teacher from Mexico.' do
+      expect(user.bio).to eql('Teacher from Mexico.')
     end
     it 'should have a key posts_counter = 0' do
-      expect(user.posts_counter).to match(0)
+      expect(user.posts_counter).to eql(0)
     end
   end
 
   context 'Validations should be working and' do
+    it 'should have a key posts_counter greater or = 0' do
+      expect(user.posts_counter).to be >= 0
+    end
     it '"name" should be present' do
       expect(user).to be_valid
       user.name = nil
