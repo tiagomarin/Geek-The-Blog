@@ -54,6 +54,7 @@ gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0'
 end
 

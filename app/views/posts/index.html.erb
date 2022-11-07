@@ -2,9 +2,11 @@
 
 <ul>
   <% @posts.each do |post| %>
-  <li>
-    <h3><%= post.title %></h3>
-    <p><%= post.text %></p>
-  </li>
+    <%= link_to user_post_path(@user, post.id) do %>
+      <li>
+        <h3><%= post.title %> __ post.id = <%= post.id %></h3>
+        <p><%= post.text %></p>
+      </li>
+    <% end %>
   <% end %>
 </ul>
