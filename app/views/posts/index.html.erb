@@ -1,0 +1,10 @@
+<h1>All posts from <%= @user.name %></h1>
+
+<ul>
+  <% @posts.each do |post| %>
+  <li>
+    <h3><%= post.title %></h3>
+    <p><%= post.text %></p>
+  </li>
+  <% end %>
+</ul>

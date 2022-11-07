@@ -1,0 +1,12 @@
+<h1><%= @user.name %></h1>
+<ul>
+  <% @user.posts.each do |post| %>
+    <%= link_to user_post_path(@user, post.id) do %>
+      <li>
+        <h3><%= post.title %> __ post.id = <%= post.id %></h3>
+        <p><%= post.text %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+<button>Show all posts</button>

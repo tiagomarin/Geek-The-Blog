@@ -1,0 +1,10 @@
+<h1> page for a single post with id: <%= @post.id %></h1>
+<h2>post text: <%= @post.text %></h2>
+<ul>
+  <% @post.comments.each do |comment| %>
+      <li>
+        <p>comment text: <%= comment.text %></p>
+      </li>
+  <% end %>
+</ul>
+<button>Show all comments</button>
