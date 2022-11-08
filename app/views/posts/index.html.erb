@@ -1,12 +1,14 @@
-<h1>All posts from <%= @user.name %></h1>
-
-<ul>
-  <% @posts.each do |post| %>
-    <%= link_to user_post_path(@user, post.id) do %>
-      <li>
-        <h3><%= post.title %> __ post.id = <%= post.id %></h3>
-        <p><%= post.text %></p>
-      </li>
+<div class="flex flex-col w-full gap-3">
+  <%= render partial:'shared/user', locals: {user: @user} %>
+  <ul class="flex flex-col gap-3 w-full">
+    <p class="only:block hidden">There are no posts yet!</p>
+    <% @posts.each do |post| %>
+      <%= link_to user_post_path(@user, post.id) do %>
+        <div class="hover:bg-gray-100">
+          <%= render partial:'shared/post_highlight', locals: { post: post } %>
+          <%= render partial:'shared/post_comments', locals: { comments: post.last_5_comments } %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>

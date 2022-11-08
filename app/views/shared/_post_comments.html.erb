@@ -1,0 +1,6 @@
+<ul class="flex flex-col gap-3 w-full p-4 text-gray-800 border border-gray-400 rounded shadow">
+  <p class="only:block hidden">There are no comments yet!</p>
+  <% comments.each do |comment| %>
+    <li> <%= comment.author.name %> :  <%= comment.text %></li>
+  <% end %>
+</ul>
