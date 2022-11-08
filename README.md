@@ -10,20 +10,29 @@ This application is a blog dedicated to all fans of the geek world. You can post
 
 ## Getting Started
 
-Clone this repo: https://github.com/tiagomarin/Geek-The-Blog.git
-
-- Go to the repo directory from the comand line.
-- Run 
-```
-bundle install
-
-```
-
 ### Prerequisites
 
 - Ruby installed in your computer. ([install guide](https://github.com/microverseinc/curriculum-ruby/blob/main/simple-ruby/articles/ruby_installation_instructions.md))
 - Rails installed in your computer. (install guide for [Ubuntu](https://gorails.com/setup/ubuntu/21.04) and [Windows](https://gorails.com/setup/windows/10))
 - Any code editor like Vscode or Vim.
+
+### Step by step
+
+Clone this repo: https://github.com/tiagomarin/Geek-The-Blog.git
+
+- Go to the repo directory from the comand line and run 
+```
+bundle install
+
+```
+- to see it running on your navigator run in your terminal:
+```
+./bin/dev
+
+```
+
+
+
 
 ## Authors
 
