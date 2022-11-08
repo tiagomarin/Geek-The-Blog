@@ -4,8 +4,10 @@
     <p class="only:block hidden">There are no posts yet!</p>
     <% @posts.each do |post| %>
       <%= link_to user_post_path(@user, post.id) do %>
-        <%= render partial:'shared/post_highlight', locals: { post: post } %>
-        <%= render partial:'shared/post_comments', locals: { comments: post.last_5_comments } %>
+        <div class="hover:bg-gray-100">
+          <%= render partial:'shared/post_highlight', locals: { post: post } %>
+          <%= render partial:'shared/post_comments', locals: { comments: post.last_5_comments } %>
+        </div>
       <% end %>
     <% end %>
   </ul>
