@@ -1,10 +1,7 @@
-<h1> page for a single post with id: <%= @post.id %></h1>
-<h2>post text: <%= @post.text %></h2>
-<ul>
-  <% @post.comments.each do |comment| %>
-      <li>
-        <p>comment text: <%= comment.text %></p>
-      </li>
-  <% end %>
-</ul>
-<button>Show all comments</button>
+<div class="flex flex-col gap-3">
+  <div class="p-4 border border-black border-solid">
+    <h3><%= @post.title %></h3>
+    <p><%= @post.text %></p>
+  </div>
+    <%= render partial:'shared/post_comments', locals: { comments: @post.comments } %>
+</div>

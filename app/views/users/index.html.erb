@@ -1,10 +1,13 @@
-<h1>All Users</h1>
+<div class="flex flex-col w-full">
+  <h1>List of Geeks</h1>
 
-<ul>
-  <% @users.each do |user| %>
-    <%= link_to user_path(user.id) do %>
-    <li><%= user.name %></li>
+  <ul class="flex flex-col gap-3 w-full">
+    <p class="only:block hidden">There are no posts yet!</p>
+    <% @users.each do |user| %>
+      <%= link_to user_path(user.id) do %>
+        <%= render partial:'shared/user', locals: {user: user} %>
+      <% end %>
     <% end %>
-  <% end %>
-  
-</ul>
+    
+  </ul>
+</div>
