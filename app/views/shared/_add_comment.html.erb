@@ -1,0 +1,11 @@
+<div class="flex flex-col gap-3 w-full ">
+  <h2>Add a new comment</h2>
+  <%= form_with model: Comment, url: user_post_comments_path(@user, @post), class: "flex items-end gap-3 text-gray-800" do |form|  %>
+    <div>
+      <%= form.text_field :text, class: "border border-gray-400 rounded shadow", placeholder: "Your comment" %>
+    </div>  
+    <div>
+      <%= form.submit "Add Comment", class: "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" %><br>
+    </div>
+  <% end %>
+</div>  

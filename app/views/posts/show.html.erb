@@ -2,7 +2,9 @@
   <div class="flex flex-col p-4 border border-black border-solid">
     <h3><%= @post.title %></h3>
     <p><%= @post.text %></p>
-    <span class="text-right">comments: <%= @post.comments.length %>, likes: <%= @post.likes.length %></span>
+    <span class="text-right">comments: <%= @post.comments.length %>, likes: <%= @post.likes.length %> </span>
   </div>
-    <%= render partial:'shared/post_comments', locals: { comments: @post.comments } %>
+  <div class="self-end"><%= render partial: 'shared/like_btn'%></div>
+  <%= render partial: 'shared/post_comments', locals: { comments: @post.comments } %>
+  <%= render "shared/add_comment" %>
 </div>
