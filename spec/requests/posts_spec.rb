@@ -67,35 +67,29 @@ RSpec.describe 'Posts', type: :request do
     end
   end
 
-  # when a post is succesfully created it redirects to user/user.id,
-  # I want to test this, the following is not working yet
+  describe 'POST #create' do
+    valid_attributes = {
+      author: user.id,
+      title: Faker::Lorem.sentence(word_count: 3),
+      text: Faker::Lorem.paragraph_by_chars(number: 180)
+    }
 
-  # describe 'POST #create' do
-  #   context 'with valid params' do
-  #     it 'creates a new post' do
-  #       expect { post user_post_path, params: { post: valid_attributes } }.to change(Post, :count).by(1)
-  #       expect(response).to redirect_to user_posts_path(user)
-  #     end
-  #   end
-
-  #   context 'with invalid params' do
-  #     it 'does not create a new post' do
-  #       expect { post posts_path, params: { post: invalid_attributes } }.not_to change(Post, :count)
-  #       expect(response).to have_http_status 200
-  #     end
-  #   end
-  # end
-  # describe 'POST /create' do
-  #   include RSpecHtmlMatchers
-  # before(:example) do
-  #   post "/users/#{user.id}/post",
-  #        params: { author: user.id, title: Faker::Lorem.sentence(word_count: 3),
-  #                  text: Faker::Lorem.paragraph_by_chars(number: 180) }
-  # end
-
-  #   it 'create a new post and redirects to url "user/1"' do
-  #     expect(response).to have_http_status(:ok)
-  #     expect(response).to redirect_to(user_path)
-  #   end
-  # end
+    context 'with valid params' do
+      before(:example) do
+        post user_posts_path(user),
+             params: { post: { author: user.id, title: Faker::Lorem.sentence(word_count: 3),
+                               text: Faker::Lorem.paragraph_by_chars(number: 180) } }
+        it 'creates a new post' do
+          expect(response).to have_http_status(302)
+        end
+        it 'updates the counter' do
+          expect { post user_posts_path(user), params: { post: valid_attributes } }.to change(Post, :count).by(1)
+        end
+        it 'create a new post and redirects to url "user/1"' do
+          expect(response).to redirect_to(user_path(user))
+          expect(response).to redirect_to('/users/1')
+        end
+      end
+    end
+  end
 end
