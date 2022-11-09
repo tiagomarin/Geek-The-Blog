@@ -1,0 +1,13 @@
+<%= form_with model: Post, url: user_posts_path, class: "flex flex-col gap-3 w-full text-gray-800" do |form|  %>
+  <div>
+    <%= form.text_field :title, class: "border border-gray-400 rounded shadow", placeholder: "Title" %>
+  </div>
+  
+  <div>
+    <%= form.text_field :text, class: "border border-gray-400 rounded shadow", placeholder: "Text" %>
+  </div>
+  
+  <div>
+    <%= form.submit "Submit", class: "border border-gray-400 rounded shadow" %><br>
+  </div>
+<% end %>
