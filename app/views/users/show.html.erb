@@ -4,10 +4,10 @@
     <h3>Bio</h3>
     <p><%= @user.bio %></p>
   </div>
-  <ul class="flex flex-col gap-3 w-full">
+  <ul id="list-of-posts"class="flex flex-col gap-3 w-full">
     <p class="only:block hidden">There are no posts yet!</p>
     <% @user.last_3_posts.each do |post| %>
-      <%= link_to user_post_path(@user, post.id) do %>
+      <%= link_to user_post_path(@user, post.id), id: "post-#{post.id}" do %>
         <%= render partial:'shared/post_highlight', locals: {user: @user, post: post} %>
       <% end %>
     <% end %>
