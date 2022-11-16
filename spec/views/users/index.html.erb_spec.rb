@@ -5,7 +5,16 @@ RSpec.describe 'users/index.html.erb', type: :system do
 
   before :each do
     @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-    @post = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
+    @user2 = User.create(name: 'Ana', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Argentina.')
+    @post_counter = 0
+    @post = Post.create(author: @user, title: 'Hello Tom', text: 'This is my first post')
+    @post_counter += 1
+    @post2 = Post.create(author: @user, title: 'Hi there', text: 'This is my sencond post')
+    @post_counter += 1
+    @post3 = Post.create(author: @user2, title: 'Bye', text: 'This is my first post')
+    @post_counter += 1
+    Comment.create(post_id: @post.id, author_id: @user2.id, text: 'I really like your idea.')
+    Like.create(post_id: @post.id, author_id: @user2.id)
     visit users_path
   end
 
@@ -15,14 +24,19 @@ RSpec.describe 'users/index.html.erb', type: :system do
 
   it 'loads user names correctly into the page' do
     expect(page).to have_content('Tom', count: 1)
-    # same as => expect(page).to have_css("h3", text: "Tom")
-    expect(page).to have_css('img', count: 1)
+    expect(page).to have_content('Ana', count: 1)
+  end
+
+  it 'loads user picture correctly into the page' do
+    expect(page).to have_css('img', count: 2)
+  end
+
+  it 'loads user nº of posts each user has correctly into the page' do
     expect(page).to have_content("nº of posts: #{@user.posts.length}")
   end
-  # it "redirects to user/1/posts when clicked on 'Show all posts' button" do
-  #   click_link "Ana" # too many users with same name
-  #   expect(current_path).to eql(user_path(User.first))
-  # end
-end
 
-# include RSpecHtmlMatchers
+  it "redirects to user/1/posts when clicked on 'Show all posts' button" do
+    click_link 'Tom'
+    expect(current_path).to eql(user_path(User.first))
+  end
+end

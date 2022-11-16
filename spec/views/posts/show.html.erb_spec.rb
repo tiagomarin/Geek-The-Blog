@@ -5,7 +5,7 @@ RSpec.describe 'posts/show.html.erb', type: :system do
 
   before :each do
     @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-    @user2 = User.create(name: 'Ana', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+    @user2 = User.create(name: 'Ana', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Argentina.')
     @post_counter = 0
     @post = Post.create(author: @user, title: 'Hello Tom', text: 'This is my first post')
     @post_counter += 1

@@ -4,9 +4,16 @@ RSpec.describe 'users/show.html.erb', type: :system do
   end
   before :each do
     @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-    @post = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
-    Post.create(author: @user, title: 'Hi', text: 'This is my sencond post')
-    Post.create(author: @user, title: 'Bye', text: 'This is my third post')
+    @user2 = User.create(name: 'Ana', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Argentina.')
+    @post_counter = 0
+    @post = Post.create(author: @user, title: 'Hello Tom', text: 'This is my first post')
+    @post_counter += 1
+    @post2 = Post.create(author: @user, title: 'Hi there', text: 'This is my sencond post')
+    @post_counter += 1
+    @post3 = Post.create(author: @user, title: 'Bye', text: 'This is my third post')
+    @post_counter += 1
+    Comment.create(post_id: @post.id, author_id: @user2.id, text: 'I really like your idea.')
+    Like.create(post_id: @post.id, author_id: @user2.id)
     visit user_path(@user)
   end
 
@@ -15,8 +22,7 @@ RSpec.describe 'users/show.html.erb', type: :system do
   end
 
   it 'loads user name correctly into the page' do
-    expect(page).to have_content('Tom')
-    expect(page).to have_css('h3', text: 'Tom')
+    expect(page).to have_css('h3', text: 'Tom') # same as => expect(page).to have_content('Tom')
   end
 
   it 'renders nº of posts user has written' do
@@ -24,11 +30,20 @@ RSpec.describe 'users/show.html.erb', type: :system do
   end
 
   it 'renders user bio correctly' do
-    expect(page).to have_content('Teacher from Mexico.')
+    expect(page).to have_css('h3', text: 'Bio')
+    expect(page).to have_css('p', text: 'Teacher from Mexico.')
   end
 
   it 'renders only 3 posts' do
     expect(page.find('#list-of-posts').all('li').length).to eql(3)
+  end
+
+  it 'renders nº of comments a post has' do
+    expect(page).to have_content("comments: #{@user.comments.length}")
+  end
+
+  it 'renders nº of likes a post has' do
+    expect(page).to have_content("likes: #{@user.likes.length}")
   end
 
   it "renders the 'Show all posts' button on page" do
