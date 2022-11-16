@@ -39,11 +39,11 @@ RSpec.describe 'users/show.html.erb', type: :system do
   end
 
   it 'renders nº of comments a post has' do
-    expect(page).to have_content("comments: #{@user.comments.length}")
+    expect(page).to have_content("comments: #{@post.comments.length}")
   end
 
   it 'renders nº of likes a post has' do
-    expect(page).to have_content("likes: #{@user.likes.length}")
+    expect(page).to have_content("likes: #{@post.likes.length}")
   end
 
   it "renders the 'Show all posts' button on page" do

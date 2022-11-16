@@ -50,6 +50,10 @@ RSpec.describe 'posts/index.html.erb', type: :system do
     expect(page.find("#comments-post-#{@post.id}").all('li').length).to eql(@post.comments.length)
   end
 
+  it 'renders nº of likes a post has' do
+    expect(page).to have_content("likes: #{@post.likes.length}")
+  end
+
   it "redirects to user/1/post/x when clicked on a post'" do
     page.find("#post-#{@post.id}").click
     expect(current_path).to eql(user_post_path(@user, @post))
