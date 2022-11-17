@@ -34,7 +34,7 @@ bundle install
 
 
 
-## Authors
+## Author
 
 👤 **Tiago Lelinski**
 
