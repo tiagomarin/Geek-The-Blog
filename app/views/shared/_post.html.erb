@@ -1,0 +1,11 @@
+<li class="flex flex-col p-4 hover:bg-gray-100 text-gray-800 font-semibold border border-gray-400 rounded shadow">
+  <h3 class="text-xl"><%= post.title %></h3>
+  <p><%= post.text %></p>
+  <span class="flex self-end gap-5">
+      comments: <%= post.comments.length %>, 
+      likes: <%= post.likes.length %>
+      <% if can? :manage, post %>
+        <%= button_to "", user_post_path(@user, post), :method => :delete, class:"fa-solid fa-trash-can " %>
+      <% end %>
+    </span>
+</li>

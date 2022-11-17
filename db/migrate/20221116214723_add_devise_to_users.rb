@@ -32,7 +32,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[7.0]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.integer :role, default: 0
+      t.integer :role, default: 'user'
 
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false

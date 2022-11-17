@@ -5,10 +5,14 @@
     <% @posts.each do |post| %>
       <%= link_to user_post_path(@user, post.id), id: "post-#{post.id}" do %>
         <div class="hover:bg-gray-100">
-          <%= render partial:'shared/post_highlight', locals: { post: post } %>
+          <%= render partial:'shared/post', locals: { post: post } %>
           <%= render partial:'shared/post_comments', locals: { comments: post.last_5_comments, post_id: post.id } %>
         </div>
       <% end %>
     <% end %>
   </ul>
+  <% if can? :manage, Post %>
+    <%= render "shared/new_post_btn" %>
+  <% end %>
+  
 </div>

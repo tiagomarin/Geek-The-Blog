@@ -6,14 +6,20 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= favicon_link_tag asset_path('icon.png') %>
   </head>
 
   <body>
-    <main class="px-5 flex flex-col w-full">
-      <nav> <%= render "layouts/navbar" %> </nav>
+    <main class="px-5 flex flex-col w-full mb-10">
+      <nav class="flex justify-between items-center mb-5">
+        <div class="flex gap-2 items-center">
+          <%= image_tag "icon.png", width: 30 %>
+          <span> Geek The Blog </span>
+        </div>
+        <%= render "layouts/navbar" %> 
+      </nav>
       <%= yield %>
     </main>
   </body>

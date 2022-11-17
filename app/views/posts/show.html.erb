@@ -3,7 +3,14 @@
     <h3>Post <%= @post.id %> by <%= @post.author.name %></h3>
     <h3><%= @post.title %></h3>
     <p><%= @post.text %></p>
-    <span class="text-right">comments: <%= @post.comments.length %>, likes: <%= @post.likes.length %> </span>
+    <span class="flex self-end gap-5">
+      comments: <%= @post.comments.length %>, 
+      likes: <%= @post.likes.length %>
+      <% if can? :manage, Post %>
+        <%= button_to "", user_post_path(@post), :method => :delete, class:"fa-solid fa-trash-can" %>
+      <% end %>
+    </span>
+    
   </div>
   <div class="self-end"><%= render partial: 'shared/like_btn'%></div>
   <%= render partial: 'shared/post_comments', locals: { comments: @post.comments, post_id: @post.id} %>

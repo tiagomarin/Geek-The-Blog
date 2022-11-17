@@ -1,7 +1,12 @@
 <ul id="comments-post-<%= post_id %>" class="flex flex-col gap-3 w-full p-4 text-gray-800 border border-gray-400 rounded shadow">
   <p class="only:block hidden">There are no comments yet!</p>
   <% comments.each do |comment| %>
-    <li> <%= comment.author.name %> :  <%= comment.text %></li>
+    <li class="flex justify-between">
+      <%= comment.author.name %> :  <%= comment.text %>
+      <% if can? :manage, comment %>
+        <%= button_to "", user_post_comment_path(comment.author, post_id, comment), :method => :delete, class:"fa-solid fa-trash-can" %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
