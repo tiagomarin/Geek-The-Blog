@@ -1,10 +1,7 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"name" %>
-  </div>
-  
+    
   <div class="field">
     <%= f.email_field :email, autocomplete: "email", placeholder: "your best email" %>
   </div>

@@ -45,6 +45,9 @@ gem 'bootsnap', require: false
 # Log in and authentication
 gem 'devise'
 
+# Authorization
+gem 'cancancan'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -52,10 +55,13 @@ gem 'devise'
 # gem "image_processing", "~> 1.2"
 
 # Generate fake data
-gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
+gem 'faker'
 
 # Generate fake profile picture img url
 gem 'unsplash'
+
+# Icons
+gem 'font-awesome-sass', '~> 6.2.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
