@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    @user = User.create(name: 'Ana', photo: 'https://photoUrl.com', bio: 'Teacher from Mexico.')
+    @user = User.create(name: 'Ana', photo: 'https://photoUrl.com', bio: 'Teacher from Mexico.',
+                        email: 'ana@gmail.com', password: 'ana1234')
   end
 
   context 'User is created with proper key and values, passes all validations and it ' do

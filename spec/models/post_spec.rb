@@ -3,7 +3,8 @@ require 'faker'
 
 RSpec.describe Post, type: :model do
   before :each do
-    @user = User.create(name: 'Jonh', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.')
+    @user = User.create(name: 'Jonh', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.',
+                        email: 'john@gmail.com', password: 'john1234')
     @post = Post.create(author_id: @user.id, title: 'Hello', text: 'This is my first post')
   end
 
