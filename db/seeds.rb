@@ -6,12 +6,6 @@ when "development"
   users = []
   posts = []
   
-  # attempt to autogenerate random profile picture, failed
-  # profile_images = Array.new(10) do
-  #   # "https://source.unsplash.com/random?#{rand(1..10)}"
-  #   "https://source.unsplash.com/random?#{rand(1..10)}/200×200/?people"
-  # end
-  
   10.times do
     users.push(User.create do |user|
       user.name = Faker::FunnyName.name_with_initial

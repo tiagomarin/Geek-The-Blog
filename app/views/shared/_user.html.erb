@@ -4,9 +4,9 @@
     <h3 class="text-xl"><%= user.name %></h3>
     <div class="flex self-end gap-5">
       <span>nº of posts: <%= user.posts.length %></span>
-      <% if can? :manage, User %>
-        <%= button_to "", users_path(user), :method => :delete, class:"fa-solid fa-trash-can " %>
-      <% end %>
+      <%# if can? :manage, User %>
+        <%#= button_to "", users_path(user), :method => :delete, class:"fa-solid fa-trash-can " %>
+      <%# end %>
     </div>
   </div>
 </li>
