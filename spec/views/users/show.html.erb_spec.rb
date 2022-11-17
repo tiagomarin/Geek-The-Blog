@@ -3,8 +3,10 @@ RSpec.describe 'users/show.html.erb', type: :system do
     driven_by(:rack_test)
   end
   before :each do
-    @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-    @user2 = User.create(name: 'Ana', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Argentina.')
+    @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+                        email: 'tom@gmail.com', password: 'tom1234')
+    @user2 = User.create(name: 'Ana', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Argentina.',
+                         email: 'ana@gmail.com', password: 'ana1234')
     @post_counter = 0
     @post = Post.create(author: @user, title: 'Hello Tom', text: 'This is my first post')
     @post_counter += 1
