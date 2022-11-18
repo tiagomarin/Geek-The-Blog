@@ -1,7 +1,9 @@
 <ul class="flex items-center gap-5 inset-0 h-10">
   <% if current_user %>
     <li>
-      <%= current_user.name.split(' ')[0] %>
+      <%= link_to edit_user_registration_path do %>
+        <%= current_user.name.split(' ')[0] %>
+      <% end %>
     </li>
     <li>
       <%= button_to "Logout", destroy_user_session_path, method: :delete %>

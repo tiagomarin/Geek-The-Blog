@@ -17,8 +17,14 @@
     <%= render "shared/new_post_btn" %>
   <% end %>
 
+  <% if can? :manage, @user %>
+    <p> <%= @user.name %> id: <%= @user.id %> </p> 
+    <p> <%= current_user.name %> id: <%= current_user.id %> </p>
+    <%= button_to " Delete user", users_path(@user.id), :method => :delete, class:"bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" %>
+  <% end %>
+
   <%= link_to user_posts_path(@user) do %>
     <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Show all posts</button>
   <% end %>
-
+    
 </div>
