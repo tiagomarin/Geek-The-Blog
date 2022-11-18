@@ -3,6 +3,7 @@ require 'faker'
 User.create(name: 'Admin', email: 'tiago@gmail.com', password: '654321', role: 'admin')
 case Rails.env
 when "development"
+  User.create(name: 'TesterPass', bio: Faker::Lorem.paragraph, email: 'test@test.com', password: 'mypass1234')
   users = []
   posts = []
   
