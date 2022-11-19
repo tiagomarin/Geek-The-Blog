@@ -1,8 +1,18 @@
 require 'faker'
 # require 'unsplash'
 User.create(name: 'Admin', email: 'tiago@gmail.com', password: '654321', role: 'admin')
+
+if Doorkeeper::Application.count.zero?
+  Doorkeeper::Application.create(name: "App client", redirect_uri: "", scopes: "")
+end
+
 case Rails.env
 when "development"
+  if Doorkeeper::Application.count.zero?
+    Doorkeeper::Application.create(name: "App client", redirect_uri: "", scopes: "")
+  end
+  
+  User.create(name: 'TesterPass', bio: Faker::Lorem.paragraph, email: 'test@test.com', password: 'mypass1234')
   users = []
   posts = []
   
