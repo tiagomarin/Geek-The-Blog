@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # API ROUTES
   namespace :api do # /api
     namespace :v1 do # /api/v1
-      resources :users, only: [:index,:show] do # api/v1/users
+      resources :users, only: [:index,:show, :create] do # api/v1/users
         resources :posts, only: [:index,:show], format: :json do # api/v1/users/:user_id/posts
           resources :comments, format: :json # api/v1/users/:user_id/posts/:post_id/comments
         end
