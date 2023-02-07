@@ -14,6 +14,7 @@
   - [Usage](#usage)
   - [Run tests](#run-tests)
 - [👥 Author](#author)
+- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
@@ -128,6 +129,15 @@ To run tests, run the following command:
 - GitHub: [@tiagomarin](https://github.com/tiagomarin)
 - Twitter: [@LelinskiMarin](https://twitter.com/LelinskiMarin)
 - LinkedIn: [Tiago](https://www.linkedin.com/in/tiago-lelinski-marin/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<br>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Users will be able to post pictures**
+- [ ] **Users will be able to post video**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
