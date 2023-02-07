@@ -1,4 +1,10 @@
 require 'faker'
+
+User.delete_all
+Post.delete_all
+Like.delete_all
+Comment.delete_all
+
 # require 'unsplash'
 User.create(name: 'Admin', email: 'tiago@gmail.com', password: '654321', role: 'admin')
 
